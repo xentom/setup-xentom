@@ -6,7 +6,7 @@ export function isValidVersionFormat(version: string) {
     return true;
   }
 
-  if (/^v\d+\.\d+\.\d+$/.test(version)) {
+  if (/^\d+\.\d+\.\d+$/.test(version)) {
     return true;
   }
 
