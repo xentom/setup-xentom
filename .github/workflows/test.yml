@@ -1,4 +1,4 @@
-name: build-test
+name: test
 
 on:
   pull_request:
@@ -7,11 +7,25 @@ on:
       - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  setup-xentom:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        version:
+          - latest
+          - canary
+          - '0.0.12'
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Xentom CLI
+        uses: ./
+        with:
+          version: ${{ matrix.version }}
       - name: Run Xentom CLI
         run: |
           xentom --version
