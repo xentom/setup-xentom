@@ -1,0 +1,17 @@
+name: build-test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+      - name: Run Xentom CLI
+        run: |
+          xentom --version

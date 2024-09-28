@@ -1,0 +1,21 @@
+name: Setup Xentom CLI
+description: Install the Xentom CLI to interact with the Xentom platform (e.g., to build or publish integrations)
+author: xentom
+branding:
+  icon: zap
+  color: gray-dark
+inputs:
+  version:
+    description: Version of the Xentom CLI to install (e.g., "latest", "canary", "1.0.0").
+    required: false
+    default: latest
+outputs:
+  version:
+    description: Installed version of the Xentom CLI.
+  download-url:
+    description: Download URL of the installed Xentom CLI.
+  path:
+    description: Filesystem path where the Xentom CLI is installed.
+runs:
+  using: node20
+  main: dist/setup/index.js

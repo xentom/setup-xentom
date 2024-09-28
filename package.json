@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "setup-xentom",
+  "version": "1.0.0",
+  "description": "Setup Xentom on GitHub Actions.",
+  "keywords": [
+    "xentom",
+    "github",
+    "actions",
+    "setup"
+  ],
+  "homepage": "https://xentom.com/",
+  "main": "dist/index.js",
+  "repository": "git@github.com:xentom/setup-xentom.git",
+  "bugs": "https://github.com/xentom/setup-xentom/issues",
+  "license": "MIT",
+  "author": "xentom",
+  "scripts": {
+    "format": "prettier --check . --ignore-path .gitignore",
+    "build": "esbuild --target=node20 --outfile=dist/setup/index.js --bundle --minify --platform=node --format=cjs src/index.ts",
+    "start": "npm run build && node dist/setup/index.js"
+  },
+  "dependencies": {
+    "@actions/cache": "^3.2.4",
+    "@actions/core": "^1.10.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/glob": "^0.5.0",
+    "@actions/io": "^1.1.3",
+    "@actions/tool-cache": "^2.0.1"
+  },
+  "devDependencies": {
+    "@xentom/prettier-config": "^0.0.2",
+    "@types/node": "^22.7.4",
+    "esbuild": "^0.24.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
+  },
+  "prettier": "@xentom/prettier-config"
+}
