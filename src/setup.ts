@@ -58,7 +58,12 @@ function getDownloadUrl(version: string) {
   }
 
   const filename = `xentom-${platform}-${arch}.zip`;
-  return version === 'latest'
-    ? `https://github.com/xentom/cli/releases/latest/download/${filename}`
-    : `https://github.com/xentom/cli/releases/download/${version}/${filename}`;
+  switch (version) {
+    case 'latest':
+      return `https://github.com/xentom/cli/releases/latest/download/${filename}`;
+    case 'canary':
+      return `https://github.com/xentom/cli/releases/download/canary/${filename}`;
+    default:
+      return `https://github.com/xentom/cli/releases/download/v${version}/${filename}`;
+  }
 }
