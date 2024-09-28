@@ -1,5 +1,7 @@
 # Xentom CLI for GitHub Actions
 
+[![Build](https://github.com/xentom/setup-xentom/actions/workflows/test.yml/badge.svg)](https://github.com/xentom/setup-xentom/actions/workflows/test.yml)
+
 Use this Action to install [`xentom`](https://xentom.com) on your actions runner. Works with Linux, Mac and Windows runners.
 
 ## Usage
